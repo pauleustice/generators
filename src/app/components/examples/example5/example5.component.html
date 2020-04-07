@@ -1,0 +1,46 @@
+<div class="content" role="main">
+  <h1>Generators as observers</h1>
+
+  <div class="card card--headed">
+    <div class="header">Passing values to the generator</div>
+    <ul>
+      <li>Generators can be bi-directional</li>
+      <li>You can pass values to <code>next()</code></li>
+      <li>Asymmetric behaviour - <code>next()</code> sends its value to the currently suspended <code>yield</code></li>
+    </ul>
+
+    <app-console>
+      <pre>function* observer() {{ '{' }}</pre>
+      <pre>  let input = <span class="marker" *ngIf="step === 1">></span>yield 0; <span class="marker marker--inline" *ngIf="step === 1">// 'b' assigned to first yield / input variable</span></pre>
+      <pre>  <span class="marker" *ngIf="step === 2">></span>yield input || 1; <span class="marker marker--inline" *ngIf="step === 2">// input variable returned as second yield value</span></pre>
+      <pre>  <span class="marker" *ngIf="step === 3">></span>yield 2;</pre>
+      <pre>}</pre>
+      <pre>
+
+      </pre>
+      <pre>const generator = observer();</pre>
+      <pre>
+
+      </pre>
+
+      <pre><span class="marker" *ngIf="step === 0">></span>generator.next('a'); <span class="comment" *ngIf="step === 0">// {{ '{' }} value: 0, done: false }</span></pre>
+      <pre><span class="marker" *ngIf="step > 0 && step < 3">></span>generator.next('b'); <span class="comment" *ngIf="step > 0 && step < 3">// {{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
+      <pre><span class="marker" *ngIf="step === 3">></span>generator.next('c'); <span class="comment" *ngIf="step === 3">// {{ '{' }} value: '2', done: false }</span></pre>
+      <pre><span class="marker" *ngIf="step === 4">></span>generator.next(); <span class="comment" *ngIf="step === 4">// {{ '{' }} value: undefined, done: true }</span></pre>
+    </app-console>
+
+    <input type="range" min="0" max="4" value="0" (change)="updateStep($event)" />
+  </div>
+
+  <nav>
+    <a routerLink="/examples/4" class="card card--prev card--small">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      <span>Yielding other iterables</span>
+    </a>
+
+    <a routerLink="/examples/6" class="card card--next card--small">
+      <span></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+    </a>
+  </nav>
+</div>

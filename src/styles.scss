@@ -125,8 +125,21 @@ nav {
 pre {
   margin: 0;
   padding: 0;
+  position: relative;
 
-  &.comment {
+  &.comment,
+  .comment {
     color: #e06969;
+  }
+}
+
+.marker {
+  color: chartreuse;
+  left: -25px;
+  position: absolute;
+
+  &--inline {
+    left: 0;
+    position: relative;
   }
 }
