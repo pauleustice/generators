@@ -1,0 +1,50 @@
+<div class="content" role="main">
+  <h1>Internal state</h1>
+
+  <div class="card card--headed">
+    <div class="header">A simple Fibonacci generator</div>
+    <ul>
+      <li>Generators produce sequences of values</li>
+      <li>They store state across calls</li>
+      <li>Any code after <code>yield operand</code> statement will run on next call - it's not a return!</li>
+    </ul>
+
+    <app-console>
+      <pre>function* generateFibonacci(n) {{ '{' }}</pre>
+      <pre>  let current = 0;</pre>
+      <pre>  let next = 1;</pre>
+      <pre>  let i = 0;</pre>
+      <pre>
+
+      </pre>
+      <pre>  while (i < n) {{ '{' }}</pre>
+      <pre>    yield current;</pre>
+      <pre>    [current, next] = [next, current + next];</pre>
+      <pre>    i++;</pre>
+      <pre>  }</pre>
+      <pre>}</pre>
+      <pre>
+
+      </pre>
+      <pre>const fibonacciSequence = generateFibonacci(10);</pre>
+      <pre>
+
+      </pre>
+
+      <pre>[ ...fibonacciSequence ]</pre>
+      <pre class="comment">// [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ]</pre>
+    </app-console>
+  </div>
+
+  <nav>
+    <a routerLink="/examples/2" class="card card--prev card--small">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      <span>Iterating</span>
+    </a>
+
+    <a routerLink="/examples/4" class="card card--next card--small">
+      <span>Yielding other iterables</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+    </a>
+  </nav>
+</div>

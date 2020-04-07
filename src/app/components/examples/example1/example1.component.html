@@ -1,0 +1,47 @@
+<div class="content" role="main">
+  <h1>Yielding values</h1>
+
+  <div class="card card--headed">
+    <div class="header">A basic example</div>
+    <ul>
+      <li>Calling <code>next()</code> yields the next value within the generator</li>
+    </ul>
+
+    <app-console>
+      <pre>function* threeTwoOne() {{ '{' }}</pre>
+      <pre>  yield 3;</pre>
+      <pre>  yield 2;</pre>
+      <pre>  yield 1;</pre>
+      <pre>}</pre>
+
+      <pre>
+
+      </pre>
+      <pre>const countdown = threeTwoOne();</pre>
+      <pre>
+
+      </pre>
+
+      <pre>countdown.next();</pre>
+      <pre class="comment">// {{ '{' }} value: 3, done: false }</pre>
+      <pre>countdown.next();</pre>
+      <pre class="comment">// {{ '{' }} value: 2, done: false }</pre>
+      <pre>countdown.next();</pre>
+      <pre class="comment">// {{ '{' }} value: 1, done: false }</pre>
+      <pre>countdown.next();</pre>
+      <pre class="comment">// {{ '{' }} value: undefined, done: true }</pre>
+    </app-console>
+  </div>
+
+  <nav>
+    <a routerLink="/" class="card card--prev card--small">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      <span>Intro</span>
+    </a>
+
+    <a routerLink="/examples/2" class="card card--next card--small">
+      <span>Iterating</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+    </a>
+  </nav>
+</div>

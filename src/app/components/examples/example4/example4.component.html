@@ -1,0 +1,52 @@
+<div class="content" role="main">
+  <h1>Yielding other iterables</h1>
+
+  <div class="card card--headed">
+    <div class="header">Yield what you like!</div>
+    <ul>
+      <li>Generators can yield other iterables</li>
+      <li>...even other generators</li>
+    </ul>
+
+    <app-console>
+      <pre>const letters = [ 'a', 'b', 'c' ];</pre>
+      <pre>
+
+      </pre>
+      <pre>function* numbers() {{ '{' }}</pre>
+      <pre>  yield 1;</pre>
+      <pre>  yield 2;</pre>
+      <pre>  yield 3;</pre>
+      <pre>}</pre>
+      <pre>
+
+      </pre>
+      <pre>function* alphaNumericGenerator() {{ '{' }}</pre>
+      <pre>  yield* letters;</pre>
+      <pre>  yield* numbers();</pre>
+      <pre>}</pre>
+      <pre>
+
+      </pre>
+      <pre>const numbersAndLetters = alphaNumericGenerator();</pre>
+      <pre>
+
+      </pre>
+
+      <pre>[ ...numbersAndLetters ]</pre>
+      <pre class="comment">// [ 'a', 'b', 'c', 1, 2, 3 ]</pre>
+    </app-console>
+  </div>
+
+  <nav>
+    <a routerLink="/examples/3" class="card card--prev card--small">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      <span>Internal state</span>
+    </a>
+
+    <a routerLink="/examples/5" class="card card--next card--small">
+      <span>Generators as observers</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+    </a>
+  </nav>
+</div>
