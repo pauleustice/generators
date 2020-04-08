@@ -23,17 +23,24 @@
 
       </pre>
 
-      <pre [class.active]="step === 0"><span class="marker" *ngIf="step === 0">></span>generator.next('a'); <span class="comment" *ngIf="step === 0">// {{ '{' }} value: 0, done: false }</span></pre>
-      <pre [class.active]="step > 0 && step < 3"><span class="marker" *ngIf="step > 0 && step < 3">></span>generator.next('b'); <span class="comment" *ngIf="step > 0 && step < 3">// {{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
-      <pre [class.active]="step === 3"><span class="marker" *ngIf="step === 3">></span>generator.next('c'); <span class="comment" *ngIf="step === 3">// {{ '{' }} value: '2', done: false }</span></pre>
-      <pre [class.active]="step === 4"><span class="marker" *ngIf="step === 4">></span>generator.next(); <span class="comment" *ngIf="step === 4">// {{ '{' }} value: undefined, done: true }</span></pre>
+      <pre [class.active]="step === 0"><span class="marker" *ngIf="step === 0">></span>generator.next('a');</pre>
+      <pre [class.active]="step > 0 && step < 3"><span class="marker" *ngIf="step > 0 && step < 3">></span>generator.next('b');</pre>
+      <pre [class.active]="step === 3"><span class="marker" *ngIf="step === 3">></span>generator.next('c');</pre>
+      <pre [class.active]="step === 4"><span class="marker" *ngIf="step === 4">></span>generator.next();</pre>
+    </app-console>
+
+    <app-console>
+      <pre>Yielded value:</pre>
+      <pre><span class="comment" *ngIf="step === 0">// {{ '{' }} value: 0, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step > 0 && step < 3">// {{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
+      <pre><span class="comment" *ngIf="step === 3">// {{ '{' }} value: '2', done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 4">// {{ '{' }} value: undefined, done: true }</span></pre>
     </app-console>
 
     <nav class="console-nav">
       <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
       <div class="card card--small">Step {{ step }}</div>
       <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
-
     </nav>
   </div>
 
