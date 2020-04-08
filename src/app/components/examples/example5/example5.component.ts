@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StepService } from '../../../services/step-service.service';
 
 @Component({
   selector: 'app-example5',
@@ -8,35 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class Example5Component implements OnInit {
   step = 0;
   stepCount = 4;
-  stepper = this.stepGenerator(this.stepCount);
+  stepper = this.stepService.stepGenerator(this.stepCount);
 
-  constructor() { }
+  constructor(
+    private stepService: StepService
+  ) { }
 
   ngOnInit(): void {
     this.stepper.next();
-  }
-
-  *stepGenerator(stepCount) {
-    let i = 0;
-
-    while (i < stepCount + 1) {
-      const input = yield i;
-
-      switch (input) {
-        case -1: {
-          if (i > 0) {
-            i--;
-          }
-          break;
-        }
-        case 1: {
-          if (i < stepCount) {
-            i++;
-          }
-          break;
-        }
-      }
-    }
   }
 
   updateStep(direction: number) {
