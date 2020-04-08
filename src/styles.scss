@@ -78,12 +78,12 @@ a:hover {
   }
 
   &--small {
+    margin: 0;
     width: auto;
   }
 
   &--prev {
     align-self: flex-start;
-    margin: 0;
     cursor: pointer;
 
     svg {
@@ -93,7 +93,6 @@ a:hover {
 
   &--next {
     align-self: flex-end;
-    margin: 0;
     cursor: pointer;
   }
 
@@ -114,18 +113,26 @@ a:hover {
 }
 
 nav {
-  bottom: 18px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: fixed;
-  width: 960px;
+  width: 100%;
+
+  .content > & {
+    bottom: 18px;
+    position: fixed;
+    width: 960px;
+  }
 }
 
 pre {
   margin: 0;
   padding: 0;
   position: relative;
+
+  &.active {
+    color: chartreuse;
+  }
 
   &.comment,
   .comment {
@@ -141,5 +148,12 @@ pre {
   &--inline {
     left: 0;
     position: relative;
+  }
+}
+
+.console-nav {
+  .card {
+    background: #1e1e1e;
+    color: #efefef;
   }
 }
