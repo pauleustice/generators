@@ -9,9 +9,9 @@
 
     <app-console>
       <pre>function* threeTwoOne() {{ '{' }}</pre>
-      <pre>  yield 3;</pre>
-      <pre>  yield 2;</pre>
-      <pre>  yield 1;</pre>
+      <pre [class.active]="step === 1">  yield 3;</pre>
+      <pre [class.active]="step === 3">  yield 2;</pre>
+      <pre [class.active]="step === 5">  yield 1;</pre>
       <pre>}</pre>
 
       <pre>
@@ -22,15 +22,26 @@
 
       </pre>
 
-      <pre>countdown.next();</pre>
-      <pre class="comment">// {{ '{' }} value: 3, done: false }</pre>
-      <pre>countdown.next();</pre>
-      <pre class="comment">// {{ '{' }} value: 2, done: false }</pre>
-      <pre>countdown.next();</pre>
-      <pre class="comment">// {{ '{' }} value: 1, done: false }</pre>
-      <pre>countdown.next();</pre>
-      <pre class="comment">// {{ '{' }} value: undefined, done: true }</pre>
+      <pre [class.active]="step === 0">countdown.next();</pre>
+      <pre [class.active]="step === 2">countdown.next();</pre>
+      <pre [class.active]="step === 4">countdown.next();</pre>
+      <pre [class.active]="step === 6">countdown.next();</pre>
     </app-console>
+
+    <app-console>
+      <pre>Yielded value:</pre>
+      <pre><span class="comment" *ngIf="[ 0, 2, 4, 6 ].includes(step)"> </span></pre>
+      <pre><span class="comment" *ngIf="step === 1">// {{ '{' }} value: 3, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 3">// {{ '{' }} value: 2, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 5">// {{ '{' }} value: 1, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 7">// {{ '{' }} value: undefined, done: true }</span></pre>
+    </app-console>
+
+    <nav class="console-nav">
+      <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
+      <div class="card card--small">Step {{ step + 1 }}</div>
+      <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
+    </nav>
   </div>
 
   <nav>

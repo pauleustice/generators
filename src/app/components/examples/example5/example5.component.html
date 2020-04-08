@@ -11,9 +11,9 @@
 
     <app-console>
       <pre>function* observer() {{ '{' }}</pre>
-      <pre>  let input = <span class="marker" *ngIf="step === 1">></span>yield 0; <span class="marker marker--inline" *ngIf="step === 1">// 'b' assigned to first yield / input variable</span></pre>
-      <pre>  <span class="marker" *ngIf="step === 2">></span>yield input || 1; <span class="marker marker--inline" *ngIf="step === 2">// input variable returned as second yield value</span></pre>
-      <pre>  <span class="marker" *ngIf="step === 3">></span>yield 2;</pre>
+      <pre [class.active]="step === 1 || step === 3">  let input = yield 0; <span class="comment" *ngIf="step === 3">// 'b' assigned to first yield / input variable</span></pre>
+      <pre [class.active]="step === 4">  yield input || 1; <span class="comment" *ngIf="step === 4">// input variable returned as second yield value</span></pre>
+      <pre [class.active]="step === 6">  yield 2;</pre>
       <pre>}</pre>
       <pre>
 
@@ -23,23 +23,24 @@
 
       </pre>
 
-      <pre [class.active]="step === 0"><span class="marker" *ngIf="step === 0">></span>generator.next('a');</pre>
-      <pre [class.active]="step > 0 && step < 3"><span class="marker" *ngIf="step > 0 && step < 3">></span>generator.next('b');</pre>
-      <pre [class.active]="step === 3"><span class="marker" *ngIf="step === 3">></span>generator.next('c');</pre>
-      <pre [class.active]="step === 4"><span class="marker" *ngIf="step === 4">></span>generator.next();</pre>
+      <pre [class.active]="step === 0">generator.next('a');</pre>
+      <pre [class.active]="step === 2">generator.next('b');</pre>
+      <pre [class.active]="step === 5">generator.next('c');</pre>
+      <pre [class.active]="step === 7">generator.next();</pre>
     </app-console>
 
     <app-console>
       <pre>Yielded value:</pre>
-      <pre><span class="comment" *ngIf="step === 0">// {{ '{' }} value: 0, done: false }</span></pre>
-      <pre><span class="comment" *ngIf="step > 0 && step < 3">// {{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
-      <pre><span class="comment" *ngIf="step === 3">// {{ '{' }} value: '2', done: false }</span></pre>
-      <pre><span class="comment" *ngIf="step === 4">// {{ '{' }} value: undefined, done: true }</span></pre>
+      <pre><span class="comment" *ngIf="[ 0, 2, 3, 5, 7 ].includes(step)"> </span></pre>
+      <pre><span class="comment" *ngIf="step === 1">{{ '{' }} value: 0, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 4">{{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
+      <pre><span class="comment" *ngIf="step === 6">{{ '{' }} value: '2', done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 8">{{ '{' }} value: undefined, done: true }</span></pre>
     </app-console>
 
     <nav class="console-nav">
       <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
-      <div class="card card--small">Step {{ step }}</div>
+      <div class="card card--small">Step {{ step + 1 }}</div>
       <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
     </nav>
   </div>

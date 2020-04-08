@@ -8,7 +8,7 @@ import { StepService } from '../../../services/step-service.service';
 })
 export class Example5Component implements OnInit {
   step = 0;
-  stepCount = 4;
+  stepCount = 8;
   stepper = this.stepService.stepGenerator(this.stepCount);
 
   constructor(
