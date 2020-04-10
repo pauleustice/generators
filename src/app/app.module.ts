@@ -10,17 +10,19 @@ import { Example2Component } from './components/examples/example2/example2.compo
 import { Example3Component } from './components/examples/example3/example3.component';
 import { Example4Component } from './components/examples/example4/example4.component';
 import { Example5Component } from './components/examples/example5/example5.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
     IntroComponent,
     Example1Component,
     ConsoleComponent,
     Example2Component,
     Example3Component,
     Example4Component,
-    Example5Component
+    Example5Component,
   ],
   imports: [
     BrowserModule,
