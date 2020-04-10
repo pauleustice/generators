@@ -11,29 +11,46 @@
 
     <app-console>
       <pre>function* generateFibonacci(n) {{ '{' }}</pre>
-      <pre>  let current = 0;</pre>
-      <pre>  let next = 1;</pre>
-      <pre>  let i = 0;</pre>
+      <pre [class.active]="step === 1">  let current = 3;</pre>
+      <pre [class.active]="step === 2">  let next = 5;</pre>
+      <pre [class.active]="step === 3">  let i = 0; <span class="comment">// i = {{ i }}</span></pre>
       <pre>
 
       </pre>
-      <pre>  while (i < n) {{ '{' }}</pre>
-      <pre>    yield current;</pre>
-      <pre>    [current, next] = [next, current + next];</pre>
-      <pre>    i++;</pre>
+      <pre [class.active]="[ 4, 9, 14, 19 ].includes(step)">  while (i < n) {{ '{' }}</pre>
+      <pre [class.active]="[ 5, 10, 15 ].includes(step)">    yield current;</pre>
+      <pre [class.active]="[ 7, 12, 17 ].includes(step)">    [current, next] = [next, current + next];</pre>
+      <pre [class.active]="[ 8, 13, 18 ].includes(step)">    i++;</pre>
       <pre>  }</pre>
       <pre>}</pre>
       <pre>
 
       </pre>
-      <pre>const fibonacciSequence = generateFibonacci(10);</pre>
+      <pre>const fibonacciSequence = generateFibonacci(3);</pre>
       <pre>
 
       </pre>
 
-      <pre>[ ...fibonacciSequence ]</pre>
-      <pre class="comment">// [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ]</pre>
+      <pre [class.active]="step === 0">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 6">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 11">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 16">fibonacciSequence.next();</pre>
     </app-console>
+
+    <app-console>
+      <pre>Yielded value:</pre>
+      <pre><span class="comment" *ngIf="![ 5, 10, 15, 19 ].includes(step)"> </span></pre>
+      <pre><span class="comment" *ngIf="step === 5">{{ '{' }} value: 3, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 10">{{ '{' }} value: 5, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 15">{{ '{' }} value: 8, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 19">{{ '{' }} value: undefined, done: true }</span></pre>
+    </app-console>
+
+    <nav class="console-nav">
+      <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
+      <div class="card card--small">Step {{ step + 1 }}</div>
+      <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
+    </nav>
   </div>
 
   <nav>
