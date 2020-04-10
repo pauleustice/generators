@@ -13,7 +13,7 @@
       <pre>function* observer() {{ '{' }}</pre>
       <pre [class.active]="step === 1 || step === 3">  let input = yield 0; <span class="comment" *ngIf="step === 3">// 'b' assigned to first yield / input variable</span></pre>
       <pre [class.active]="step === 4">  yield input || 1; <span class="comment" *ngIf="step === 4">// input variable returned as second yield value</span></pre>
-      <pre [class.active]="step === 6">  yield 2;</pre>
+      <pre [class.active]="step === 6">  yield 2; <span class="comment" *ngIf="step === 6">// value passed to next() is ignored</span></pre>
       <pre>}</pre>
       <pre>
 
@@ -31,7 +31,7 @@
 
     <app-console>
       <pre>Yielded value:</pre>
-      <pre><span class="comment" *ngIf="[ 0, 2, 3, 5, 7 ].includes(step)"> </span></pre>
+      <pre><span class="comment" *ngIf="![ 1, 4, 6, 8 ].includes(step)"> </span></pre>
       <pre><span class="comment" *ngIf="step === 1">{{ '{' }} value: 0, done: false }</span></pre>
       <pre><span class="comment" *ngIf="step === 4">{{ '{' }} value: 'b', done: false } returned from second yield</span></pre>
       <pre><span class="comment" *ngIf="step === 6">{{ '{' }} value: '2', done: false }</span></pre>
