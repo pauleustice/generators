@@ -1,47 +1,62 @@
 <div class="content" role="main">
-  <h1>Yielding other iterables</h1>
+  <h1>Internal state</h1>
 
   <div class="card card--headed">
-    <div class="header">Yield what you like!</div>
+    <div class="header">A simple Fibonacci generator</div>
     <ul>
-      <li>Generators can yield other iterables</li>
-      <li>...even other generators</li>
+      <li>Generators produce sequences of values</li>
+      <li>They store state across calls</li>
+      <li>Any code after <code>yield operand</code> statement will run on next call - it's not a return!</li>
     </ul>
 
     <app-console>
-      <pre>const letters = [ 'a', 'b', 'c' ];</pre>
+      <pre>function* generateFibonacci(n) {{ '{' }}</pre>
+      <pre [class.active]="step === 1">  let current = 3;</pre>
+      <pre [class.active]="step === 2">  let next = 5;</pre>
+      <pre [class.active]="step === 3">  let i = 0; <span class="comment">// i = {{ i }}</span></pre>
       <pre>
 
       </pre>
-      <pre>function* numbers() {{ '{' }}</pre>
-      <pre>  yield 1;</pre>
-      <pre>  yield 2;</pre>
-      <pre>  yield 3;</pre>
+      <pre [class.active]="[ 4, 9, 14, 19 ].includes(step)">  while (i < n) {{ '{' }}</pre>
+      <pre [class.active]="[ 5, 10, 15 ].includes(step)">    yield current;</pre>
+      <pre [class.active]="[ 7, 12, 17 ].includes(step)">    [current, next] = [next, current + next];</pre>
+      <pre [class.active]="[ 8, 13, 18 ].includes(step)">    i++;</pre>
+      <pre>  }</pre>
       <pre>}</pre>
       <pre>
 
       </pre>
-      <pre>function* alphaNumericGenerator() {{ '{' }}</pre>
-      <pre>  yield* letters;</pre>
-      <pre>  yield* numbers();</pre>
-      <pre>}</pre>
-      <pre>
-
-      </pre>
-      <pre>const numbersAndLetters = alphaNumericGenerator();</pre>
+      <pre>const fibonacciSequence = generateFibonacci(3);</pre>
       <pre>
 
       </pre>
 
-      <pre>[ ...numbersAndLetters ]</pre>
-      <pre class="comment">// [ 'a', 'b', 'c', 1, 2, 3 ]</pre>
+      <pre [class.active]="step === 0">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 6">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 11">fibonacciSequence.next();</pre>
+      <pre [class.active]="step === 16">fibonacciSequence.next();</pre>
     </app-console>
+
+    <app-console>
+      <pre>Yielded value:</pre>
+      <pre><span class="comment" *ngIf="![ 5, 10, 15, 19 ].includes(step)"> </span></pre>
+      <pre><span class="comment" *ngIf="step === 5">{{ '{' }} value: 3, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 10">{{ '{' }} value: 5, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 15">{{ '{' }} value: 8, done: false }</span></pre>
+      <pre><span class="comment" *ngIf="step === 19">{{ '{' }} value: undefined, done: true }</span></pre>
+    </app-console>
+
+    <nav class="console-nav">
+      <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
+      <div class="card card--small">Step {{ step + 1 }}</div>
+      <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
+    </nav>
   </div>
 
   <nav>
     <a routerLink="/examples/3" class="card card--prev card--small">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-      <span>Internal state</span>
+      <span>Yielding other iterables</span>
     </a>
 
     <a routerLink="/examples/5" class="card card--next card--small">
