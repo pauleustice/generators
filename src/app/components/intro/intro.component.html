@@ -13,10 +13,34 @@
   <div class="card card--headed">
     <div class="header">Key details</div>
     <ul>
-      <li>Differentiated from normal functions using <code>function* myGenerator()</code> asterisk syntax</li>
-      <li>When called, returns a reference to a Generator Object, upon which you call <code>next()</code></li>
-      <li><code>next()</code> returns an object with two keys: <code>value</code> and <code>done</code></li>
+      <li>Differentiated from normal functions using the asterisk syntax <code>function* myGenerator()</code> </li>
     </ul>
+
+    <app-console>
+      <pre><span class="comment">As a straight up function:</span></pre>
+      <pre>function *myGenerator () {{ '{' }}</pre>
+      <pre>  <span class="comment">// generator code here</span></pre>
+      <pre>}</pre>
+      <pre>
+
+      </pre>
+      <pre><span class="comment">Or in a class:</span></pre>
+      <pre>class myClass {{ '{' }}</pre>
+      <pre>  *myGenerator () {{ '{' }}</pre>
+      <pre>    <span class="comment">// generator code here</span></pre>
+      <pre>  }</pre>
+      <pre>}</pre>
+    </app-console>
+
+    <ul>
+      <li>When called, returns a reference to a Generator Object, upon which you call <code>next()</code></li>
+      <li><code>next()</code> returns an object with the last yielded value (<code>value</code>) and whether it has completed (<code>done</code>)</li>
+    </ul>
+
+    <app-console>
+      <pre>const foo = myGenerator();</pre>
+      <pre>foo.next(); <span class="comment">// returns e.g. {{ '{' }} value: 1, done: false }</span></pre>
+    </app-console>
   </div>
 
   <nav>
