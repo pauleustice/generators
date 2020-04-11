@@ -8,6 +8,7 @@ import { Example2Component } from './components/examples/example2/example2.compo
 import { Example3Component } from './components/examples/example3/example3.component';
 import { Example4Component } from './components/examples/example4/example4.component';
 import { Example5Component } from './components/examples/example5/example5.component';
+import { ThrowReturnComponent } from './components/examples/throw-return/throw-return.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'examples/3', component: Example3Component },
   { path: 'examples/4', component: Example4Component },
   { path: 'examples/5', component: Example5Component },
+  { path: 'examples/6', component: ThrowReturnComponent },
 ];
 
 @NgModule({

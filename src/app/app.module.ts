@@ -11,6 +11,7 @@ import { Example3Component } from './components/examples/example3/example3.compo
 import { Example4Component } from './components/examples/example4/example4.component';
 import { Example5Component } from './components/examples/example5/example5.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { ThrowReturnComponent } from './components/examples/throw-return/throw-return.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LandingComponent } from './components/landing/landing.component';
     Example3Component,
     Example4Component,
     Example5Component,
+    ThrowReturnComponent,
   ],
   imports: [
     BrowserModule,
