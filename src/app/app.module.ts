@@ -10,13 +10,13 @@ import { IteratingComponent } from './components/examples/iterating/iterating.co
 import { YieldingIterablesComponent } from './components/examples/yielding-iterables/yielding-iterables.component';
 import { InternalStateComponent } from './components/examples/internal-state/internal-state.component';
 import { ObserversComponent } from './components/examples/observers/observers.component';
-import { LandingComponent } from './components/landing/landing.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ThrowReturnComponent } from './components/examples/throw-return/throw-return.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
+    WelcomeComponent,
     IntroComponent,
     YieldingValuesComponent,
     ConsoleComponent,
@@ -30,7 +30,6 @@ import { ThrowReturnComponent } from './components/examples/throw-return/throw-r
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
