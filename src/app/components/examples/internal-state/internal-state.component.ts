@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { StepService } from '../../../services/step-service.service';
 
 @Component({
-  selector: 'app-example4',
-  templateUrl: './example4.component.html',
+  selector: 'app-internal-state',
+  templateUrl: './internal-state.component.html',
 })
-export class Example4Component implements OnInit {
+export class InternalStateComponent implements OnInit {
   i = 0;
   step = 0;
   stepCount = 19;

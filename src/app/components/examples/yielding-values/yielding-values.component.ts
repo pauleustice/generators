@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { StepService } from '../../../services/step-service.service';
 
 @Component({
-  selector: 'app-example5',
-  templateUrl: './example5.component.html',
+  selector: 'app-yielding-values',
+  templateUrl: './yielding-values.component.html',
 })
-export class Example5Component implements OnInit {
+export class YieldingValuesComponent implements OnInit {
   step = 0;
-  stepCount = 8;
+  stepCount = 7;
   stepper = this.stepService.stepGenerator(this.stepCount);
 
   constructor(

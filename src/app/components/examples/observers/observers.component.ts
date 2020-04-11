@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { StepService } from '../../../services/step-service.service';
 
 @Component({
-  selector: 'app-example1',
-  templateUrl: './example1.component.html',
+  selector: 'app-observers',
+  templateUrl: './observers.component.html',
 })
-export class Example1Component implements OnInit {
+export class ObserversComponent implements OnInit {
   step = 0;
-  stepCount = 7;
+  stepCount = 8;
   stepper = this.stepService.stepGenerator(this.stepCount);
 
   constructor(

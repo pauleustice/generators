@@ -3,23 +3,23 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LandingComponent } from './components/landing/landing.component';
 import { IntroComponent } from './components/intro/intro.component';
-import { Example1Component } from './components/examples/example1/example1.component';
-import { Example2Component } from './components/examples/example2/example2.component';
-import { Example3Component } from './components/examples/example3/example3.component';
-import { Example4Component } from './components/examples/example4/example4.component';
-import { Example5Component } from './components/examples/example5/example5.component';
+import { YieldingValuesComponent } from './components/examples/yielding-values/yielding-values.component';
+import { IteratingComponent } from './components/examples/iterating/iterating.component';
+import { YieldingIterablesComponent } from './components/examples/yielding-iterables/yielding-iterables.component';
+import { InternalStateComponent } from './components/examples/internal-state/internal-state.component';
+import { ObserversComponent } from './components/examples/observers/observers.component';
 import { ThrowReturnComponent } from './components/examples/throw-return/throw-return.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'intro', component: IntroComponent },
-  { path: 'examples/1', component: Example1Component },
-  { path: 'examples/2', component: Example2Component },
-  { path: 'examples/3', component: Example3Component },
-  { path: 'examples/4', component: Example4Component },
-  { path: 'examples/5', component: Example5Component },
-  { path: 'examples/6', component: ThrowReturnComponent },
+  { path: 'examples/1', component: YieldingValuesComponent },
+  { path: 'examples/2', component: IteratingComponent },
+  { path: 'examples/3', component: YieldingIterablesComponent },
+  { path: 'examples/4', component: ThrowReturnComponent },
+  { path: 'examples/5', component: InternalStateComponent },
+  { path: 'examples/6', component: ObserversComponent },
 ];
 
 @NgModule({
