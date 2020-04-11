@@ -4,7 +4,6 @@ import { StepService } from '../../../services/step-service.service';
 @Component({
   selector: 'app-example4',
   templateUrl: './example4.component.html',
-  styleUrls: ['./example4.component.scss']
 })
 export class Example4Component implements OnInit {
   i = 0;
