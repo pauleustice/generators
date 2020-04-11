@@ -8,29 +8,6 @@
     </ul>
 
     <app-console>
-      <pre>function *numbersGenerator() {{ '{' }}</pre>
-      <pre>  yield 3;</pre>
-      <pre>  yield 2;</pre>
-      <pre>  yield 1;</pre>
-      <pre>}</pre>
-
-      <pre>
-
-      </pre>
-      <pre>const countdown = numbersGenerator();</pre>
-      <pre>
-
-      </pre>
-
-      <pre>[ 5, 4, ...countdown ]</pre>
-      <pre class="comment">// [ 5, 4, 3, 2, 1 ]</pre>
-    </app-console>
-
-    <ul>
-      <li>Or use it in for...of loops</li>
-    </ul>
-
-    <app-console>
       <pre>function *lettersGenerator() {{ '{' }}</pre>
       <pre>  yield 'a';</pre>
       <pre>  yield 'b';</pre>
@@ -45,20 +22,44 @@
 
       </pre>
 
+      <pre>[ ...alphabet ]</pre>
+      <pre class="comment">// [ 'a', 'b', 'c' ]</pre>
+    </app-console>
+
+    <ul>
+      <li>Or use it in for...of loops</li>
+    </ul>
+
+    <app-console>
+      <pre>const alphabet = lettersGenerator();</pre>
+      <pre>
+
+      </pre>
       <pre>for (letter of alphabet) {{ '{' }}</pre>
       <pre>  console.log(letter);</pre>
       <pre>}</pre>
-      <pre class="comment">// a, b, c</pre>
+    </app-console>
+
+    <ul>
+      <li>Or destructure it</li>
+    </ul>
+
+    <app-console>
+      <pre>const alphabet = lettersGenerator();</pre>
+      <pre>
+
+      </pre>
+      <pre>const [ first, second ] = alphabet();</pre>
     </app-console>
   </div>
 
   <nav>
-    <a routerLink="/examples/1" class="card card--prev card--small">
+    <a routerLink="/examples/1" class="card card--prev card--mini">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
       <span>Yielding values</span>
     </a>
 
-    <a routerLink="/examples/3" class="card card--next card--small">
+    <a routerLink="/examples/3" class="card card--next card--mini">
       <span>Yielding other iterables</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
     </a>

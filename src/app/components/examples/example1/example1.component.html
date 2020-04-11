@@ -8,7 +8,7 @@
     </ul>
 
     <app-console>
-      <pre>function *threeTwoOne() {{ '{' }}</pre>
+      <pre>function *numbersGenerator() {{ '{' }}</pre>
       <pre [class.active]="step === 1">  yield 3;</pre>
       <pre [class.active]="step === 3">  yield 2;</pre>
       <pre [class.active]="step === 5">  yield 1;</pre>
@@ -17,7 +17,7 @@
       <pre>
 
       </pre>
-      <pre>const countdown = threeTwoOne();</pre>
+      <pre>const countdown = numbersGenerator();</pre>
       <pre>
 
       </pre>
@@ -38,19 +38,19 @@
     </app-console>
 
     <nav class="console-nav">
-      <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
-      <div class="card card--small">Step {{ step + 1 }}</div>
-      <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
+      <div class="card card--prev card--mini" (click)="updateStep(-1)">Prev</div>
+      <div class="card card--mini">Step {{ step + 1 }}</div>
+      <div class="card card--next card--mini" (click)="updateStep(1)">Next</div>
     </nav>
   </div>
 
   <nav>
-    <a routerLink="/" class="card card--prev card--small">
+    <a routerLink="/intro" class="card card--prev card--mini">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
       <span>Intro</span>
     </a>
 
-    <a routerLink="/examples/2" class="card card--next card--small">
+    <a routerLink="/examples/2" class="card card--next card--mini">
       <span>Iterating</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
     </a>

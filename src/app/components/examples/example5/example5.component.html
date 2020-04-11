@@ -7,6 +7,7 @@
       <li>Generators can be bi-directional</li>
       <li>You can pass values to <code>next()</code></li>
       <li>Asymmetric behaviour - <code>next()</code> sends its value to the currently suspended <code>yield</code></li>
+      <li>As such, any value supplied to the first <code>next()</code> call is ignored, as there's no active yield to receive it</li>
     </ul>
 
     <app-console>
@@ -39,19 +40,19 @@
     </app-console>
 
     <nav class="console-nav">
-      <div class="card card--prev card--small" (click)="updateStep(-1)">Prev</div>
-      <div class="card card--small">Step {{ step + 1 }}</div>
-      <div class="card card--next card--small" (click)="updateStep(1)">Next</div>
+      <div class="card card--prev card--mini" (click)="updateStep(-1)">Prev</div>
+      <div class="card card--mini">Step {{ step + 1 }}</div>
+      <div class="card card--next card--mini" (click)="updateStep(1)">Next</div>
     </nav>
   </div>
 
   <nav>
-    <a routerLink="/examples/4" class="card card--prev card--small">
+    <a routerLink="/examples/4" class="card card--prev card--mini">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
       <span>Yielding other iterables</span>
     </a>
 
-    <a routerLink="/examples/6" class="card card--next card--small">
+    <a routerLink="/examples/6" class="card card--next card--mini">
       <span></span>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
     </a>
