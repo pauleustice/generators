@@ -1,0 +1,32 @@
+<div class="content" role="main">
+  <h1>A quick overview of iterables</h1>
+
+  <div class="card card--headed">
+    <div class="header">Key details</div>
+    <ul>
+      <li>Native iterables are things like array, string, map, set</li>
+      <li>They provide an interface within <code>Symbol.iterator</code> that defines how their contents are iterated</li>
+    </ul>
+
+    <app-console>
+      <pre>const example = [ 1, 2, 3 ];</pre>
+      <pre>const exampleIterator = example[Symbol.iterator]();</pre>
+      <pre>
+
+      </pre>
+      <pre>exampleIterator.next();</pre>
+      <pre><span class="comment">// {{ '{' }} value: 1, done: false }</span></pre>
+      <pre>exampleIterator.next();</pre>
+      <pre><span class="comment">// {{ '{' }} value: 2, done: false }</span></pre>
+      <pre>exampleIterator.next();</pre>
+      <pre><span class="comment">// {{ '{' }} value: 3, done: false }</span></pre>
+      <pre>exampleIterator.next();</pre>
+      <pre><span class="comment">// {{ '{' }} value: undefined, done: true }</span></pre>
+    </app-console>
+
+    <ul>
+      <li>So, <code>Symbol.iterator</code> provides the internal workings of how to iterate the content</li>
+      <li>...and it provides the <code>next</code> function which provides the next value, until the end of the data</li>
+    </ul>
+  </div>
+</div>

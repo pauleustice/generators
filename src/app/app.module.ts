@@ -12,6 +12,8 @@ import { InternalStateComponent } from './components/examples/internal-state/int
 import { ObserversComponent } from './components/examples/observers/observers.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ThrowReturnComponent } from './components/examples/throw-return/throw-return.component';
+import { ThanksComponent } from './components/thanks/thanks.component';
+import { IterablesComponent } from './components/iterables/iterables.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ThrowReturnComponent } from './components/examples/throw-return/throw-r
     InternalStateComponent,
     ObserversComponent,
     ThrowReturnComponent,
+    ThanksComponent,
+    IterablesComponent,
   ],
   imports: [
     BrowserModule,
